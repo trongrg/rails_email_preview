@@ -61,14 +61,14 @@ module RailsEmailPreview
                         }
                         p[:snippet][:label] = default_snippet.label unless snippet.label.present?
                       end
-                      send :"edit_#{cms_admin_site_snippet_route}_path", p
+                      send :"edit_#{cms_admin_site_snippet_route}_url", p
                     else
                       p[:snippet] = {
                           label:        snippet.label,
                           identifier:   snippet.identifier,
                           category_ids: [site.categories.find_by_label('email').try(:id)]
                       }
-                      send :"new_#{cms_admin_site_snippet_route}_path", p
+                      send :"new_#{cms_admin_site_snippet_route}_url", p
                     end
         <<-HTML.strip.html_safe
           <table class='rep-edit-link'><tr><td>
